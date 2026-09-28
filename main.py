@@ -1,6 +1,11 @@
 def calcular_costo_ruta(mapa, ruta, tipo_vehiculo, peajes, tarifa_peaje=5.0):
     if not ruta:
         return 0.0
+
+    #validacion
+    if tipo_vehiculo.lower() not in ("camion", "auto"):
+        print("Error: Tipo de vehiculo invalido.")
+        return None
     
     costo_total = 0.0
     filas = len(mapa)
@@ -35,6 +40,8 @@ def calcular_costo_ruta(mapa, ruta, tipo_vehiculo, peajes, tarifa_peaje=5.0):
         costo_total += costo_celda
 
     return round(costo_total, 2)
+
+    
 
 
 mapa_ciudad = [
